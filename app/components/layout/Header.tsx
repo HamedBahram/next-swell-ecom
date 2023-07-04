@@ -1,6 +1,9 @@
 import Link from 'next/link'
 
+import { SignedIn } from '@clerk/nextjs'
+
 import ThemeButton from '@/components/ui/ThemeButton'
+import UserAvatarButton from '@/components/ui/UserAvatarButton'
 
 const Header = () => {
   return (
@@ -21,11 +24,17 @@ const Header = () => {
           <li className='text-sm font-medium uppercase tracking-wider'>
             <Link href='/products'>Products</Link>
           </li>
+          <SignedIn>
+            <li className='text-sm font-medium uppercase tracking-wider'>
+              <Link href='/dashboard'>Dashboard</Link>
+            </li>
+          </SignedIn>
         </ul>
 
         {/* Shopping cart */}
         <div className='flex items-center justify-between gap-6'>
           <ThemeButton />
+          <UserAvatarButton />
         </div>
       </nav>
     </header>

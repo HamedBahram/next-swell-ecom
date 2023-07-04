@@ -12,7 +12,7 @@ const Footer = () => {
           Developed by{' '}
           <a
             className='text-sky-600'
-            href='https://hamedbahram.io/'
+            href='https://www.hamedbahram.io/'
             rel='noreferrer'
             target='_blank'
           >

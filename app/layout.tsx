@@ -1,6 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 
+import { ClerkProvider } from '@clerk/nextjs'
+
 import Providers from './providers'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -18,18 +20,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang='en'
-      className='h-full scroll-smooth antialiased'
-      suppressHydrationWarning
-    >
-      <body className={`${inter.className} flex h-full flex-col`}>
-        <Providers>
-          <Header />
-          <main className='grow'>{children}</main>
-          <Footer />
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang='en'
+        className='h-full scroll-smooth antialiased'
+        suppressHydrationWarning
+      >
+        <body className={`${inter.className} flex h-full flex-col`}>
+          <Providers>
+            <Header />
+            <main className='grow'>{children}</main>
+            <Footer />
+          </Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
