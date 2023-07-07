@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx'
 import { Tab } from '@headlessui/react'
+import { Image } from 'swell-js'
 
-const ProductImage = ({ images }) => {
+const ProductImage = ({ images }: { images: Image[] }) => {
   return (
     <Tab.Group
       as='div'
@@ -17,10 +18,9 @@ const ProductImage = ({ images }) => {
             >
               {({ selected }) => (
                 <>
-                  <span className='sr-only'> {image.file.metadata} </span>
                   <span className='absolute inset-0 overflow-hidden rounded-md'>
                     <img
-                      src={image.file.url}
+                      src={image.file?.url}
                       alt=''
                       className='h-full w-full object-cover object-center'
                     />
@@ -43,8 +43,8 @@ const ProductImage = ({ images }) => {
         {images?.map(image => (
           <Tab.Panel key={image.id}>
             <img
-              src={image.file.url}
-              alt={image.file.metadata}
+              src={image.file?.url}
+              alt='product image'
               className='h-full w-full object-cover object-center sm:rounded-lg'
             />
           </Tab.Panel>
