@@ -8,6 +8,9 @@ dependencies:
   '@clerk/nextjs':
     specifier: ^4.21.13
     version: 4.21.13(next@13.4.8)(react-dom@18.2.0)(react@18.2.0)
+  '@headlessui/react':
+    specifier: ^1.7.15
+    version: 1.7.15(react-dom@18.2.0)(react@18.2.0)
   '@heroicons/react':
     specifier: ^2.0.18
     version: 2.0.18(react@18.2.0)
@@ -29,6 +32,9 @@ dependencies:
   eslint-config-next:
     specifier: 13.4.8
     version: 13.4.8(eslint@8.44.0)(typescript@5.1.6)
+  framer-motion:
+    specifier: ^10.12.18
+    version: 10.12.18(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: 13.4.8
     version: 13.4.8(react-dom@18.2.0)(react@18.2.0)
@@ -44,6 +50,15 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  server-only:
+    specifier: ^0.0.1
+    version: 0.0.1
+  swell-js:
+    specifier: ^3.22.1
+    version: 3.22.1
+  swell-node:
+    specifier: ^5.1.0
+    version: 5.1.0
   tailwindcss:
     specifier: 3.3.2
     version: 3.3.2
@@ -52,6 +67,9 @@ dependencies:
     version: 5.1.6
 
 devDependencies:
+  clsx:
+    specifier: ^1.2.1
+    version: 1.2.1
   prettier:
     specifier: ^2.8.8
     version: 2.8.8
@@ -156,6 +174,19 @@ packages:
       csstype: 3.1.1
     dev: false
 
+  /@emotion/is-prop-valid@0.8.8:
+    resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+    requiresBuild: true
+    dependencies:
+      '@emotion/memoize': 0.7.4
+    dev: false
+    optional: true
+
+  /@emotion/memoize@0.7.4:
+    resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    dev: false
+    optional: true
+
   /@eslint-community/eslint-utils@4.4.0(eslint@8.44.0):
     resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -191,6 +222,18 @@ packages:
   /@eslint/js@8.44.0:
     resolution: {integrity: sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: false
+
+  /@headlessui/react@1.7.15(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-OTO0XtoRQ6JPB1cKNFYBZv2Q0JMqMGNhYP1CjPvcJvjz8YGokz8oAj89HIYZGN0gZzn/4kk9iUpmMF4Q21Gsqw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@heroicons/react@2.0.18(react@18.2.0):
@@ -882,6 +925,11 @@ packages:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: false
 
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: true
+
   /color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -970,6 +1018,11 @@ packages:
 
   /deepmerge@4.2.2:
     resolution: {integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
     dev: false
 
@@ -1444,6 +1497,10 @@ packages:
       strip-final-newline: 3.0.0
     dev: false
 
+  /fast-case@1.7.0:
+    resolution: {integrity: sha512-kkLws9Nx9kkXjZ6ng6gaFWm+qssXAxSej37fpdur7V1U5R8/lp0rps5aGo/XkhNjWyr+agjRA5y91rw8ZRBviQ==}
+    dev: false
+
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: false
@@ -1524,6 +1581,24 @@ packages:
 
   /fraction.js@4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
+    dev: false
+
+  /framer-motion@10.12.18(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-cfhiUpPbj+0eEWKjuD+5cz5cMqH71xOtMxGiS/cSGfHn2OlHIEAqFnFyzEMENw5PxWR9bMVhatzzpD6lexmHZQ==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.0
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
     dev: false
 
   /fs.realpath@1.0.0:
@@ -2565,6 +2640,13 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: false
 
+  /qs@6.11.2:
+    resolution: {integrity: sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==}
+    engines: {node: '>=0.6'}
+    dependencies:
+      side-channel: 1.0.4
+    dev: false
+
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: false
@@ -2698,6 +2780,10 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: false
+
+  /server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
     dev: false
 
   /shebang-command@2.0.0:
@@ -2874,6 +2960,20 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: false
+
+  /swell-js@3.22.1:
+    resolution: {integrity: sha512-UD6BaQDYgXmsc2pF4Guck6zjPlVnHOoQz6mK7jCAC2luc1xOZfeNwA44H4OZkU6QhouW/7gBDHqa2gHRFFxkOA==}
+    engines: {node: '>=14.19.1', npm: '>=8.17.0'}
+    dependencies:
+      deepmerge: 4.3.1
+      fast-case: 1.7.0
+      qs: 6.11.2
+    dev: false
+
+  /swell-node@5.1.0:
+    resolution: {integrity: sha512-jcspcfmimqJhcFtCszjezohBuHU3H+5VKDVRSZYlTADIvCv8pJdd/Uj+opg3B+AZLAjVgMTrXnd+EXxNvSKePw==}
+    engines: {node: '>=14.19.1', npm: '>=8.17.0'}
     dev: false
 
   /swr@1.3.0(react@18.2.0):

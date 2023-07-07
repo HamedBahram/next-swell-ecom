@@ -2,7 +2,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 
 const UserAvatarButton = () => {
   return (
-    <>
+    <div className='ml-2'>
       <SignedIn>
         <UserButton />
       </SignedIn>
@@ -13,7 +13,7 @@ const UserAvatarButton = () => {
           </button>
         </SignInButton>
       </SignedOut>
-    </>
+    </div>
   )
 }
 
