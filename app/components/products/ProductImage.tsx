@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { Tab } from '@headlessui/react'
 import { Image } from 'swell-js'
 
-const ProductImage = ({ images }: { images: Image[] }) => {
+const ProductImage = ({ images }: { images: Image[] | undefined }) => {
   return (
     <Tab.Group
       as='div'
