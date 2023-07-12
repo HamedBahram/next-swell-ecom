@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import { Dispatch, Fragment, SetStateAction } from 'react'
+import NavLink from '@/components/ui/NavLink'
 
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
@@ -54,33 +54,32 @@ const ProductFilterSlider = ({
               </div>
 
               {/* Filters */}
-              <form className='mt-4 border-t border-stone-200'>
-                <h3 className='sr-only'>Categories</h3>
-                <ul
-                  role='list'
-                  className='space-y-4 px-4 pb-6 pt-3 font-medium'
-                >
+              <form className='mt-4 border-t border-stone-200 p-8 font-medium'>
+                <NavLink href='/products' className='text-base'>
+                  All Categories
+                </NavLink>
+                <ul role='list' className='mt-4 space-y-4 text-sm'>
                   {categories
                     ?.filter(c => c.parentId === null)
                     .map(category => (
                       <li key={category.name}>
-                        <Link
-                          href={`/search/${category.slug}`}
+                        <NavLink
+                          href={`/products/category/${category.slug}`}
                           className='text-base'
                         >
                           {category.name}
-                        </Link>
-                        <ul className='mt-4 space-y-4 pl-4 text-sm font-medium'>
+                        </NavLink>
+                        <ul className='mt-4 space-y-4 border-l border-stone-300 pl-4 text-sm dark:border-stone-700'>
                           {categories
                             .filter(c => c.parentId === category.id)
                             .map(c => (
                               <li key={c.name}>
-                                <Link
-                                  href={`/search/${c.slug}`}
+                                <NavLink
+                                  href={`/products/category/${c.slug}`}
                                   className='text-stone-500'
                                 >
                                   {c.name}
-                                </Link>
+                                </NavLink>
                               </li>
                             ))}
                         </ul>

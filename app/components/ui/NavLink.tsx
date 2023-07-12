@@ -17,8 +17,8 @@ const NavLink = ({ href, className, children, ...props }: NavLinkProps) => {
 
   return (
     <Link
-      href={href}
       {...props}
+      href={href}
       className={clsx(
         className,
         isActive &&
