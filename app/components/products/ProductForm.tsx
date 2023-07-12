@@ -31,8 +31,11 @@ const ProductForm = ({
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
+    const productId = product.id
+    if (!productId) return
+
     const productData = {
-      productId: product.id,
+      productId,
       quantity: 1,
       ...(selectedSize && { options: { Size: selectedSize.name } }),
       ...(selectedPurchaseOption?.id === 'subscription' && {
@@ -43,7 +46,7 @@ const ProductForm = ({
       })
     }
 
-    await addItem(productData)
+    addItem(productData)
   }
 
   return (
