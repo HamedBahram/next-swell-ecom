@@ -54,7 +54,7 @@ const ProductFilterSlider = ({
               </div>
 
               {/* Filters */}
-              <form className='mt-4 border-t border-stone-200 p-8 font-medium'>
+              <form className='mt-4 border-t border-stone-200 p-8 font-medium text-stone-700'>
                 <NavLink href='/products' className='text-base'>
                   All Categories
                 </NavLink>
@@ -69,7 +69,7 @@ const ProductFilterSlider = ({
                         >
                           {category.name}
                         </NavLink>
-                        <ul className='mt-4 space-y-4 border-l border-stone-300 pl-4 text-sm dark:border-stone-700'>
+                        <ul className='mt-4 space-y-4 border-l border-stone-300 pl-4 text-sm'>
                           {categories
                             .filter(c => c.parentId === category.id)
                             .map(c => (

@@ -2,17 +2,21 @@ import Link from 'next/link'
 
 import { SignedIn } from '@clerk/nextjs'
 
+import NavLink from '@/components/ui/NavLink'
 import ThemeButton from '@/components/ui/ThemeButton'
+import MobileNavMenu from '@/components/layout/MobileNavMenu'
 import UserAvatarButton from '@/components/ui/UserAvatarButton'
-import NavLink from '../ui/NavLink'
-import ShoppingCartButton from '../ui/ShoppingCartButton'
+import ShoppingCartButton from '@/components/ui/ShoppingCartButton'
 
 const Header = () => {
   return (
     <header className='z-10 py-10 text-stone-400'>
       <nav className='container flex items-center justify-between'>
+        {/* mobile menu */}
+        <MobileNavMenu />
+
         {/* Logo */}
-        <div>
+        <div className='hidden sm:block'>
           <Link
             href='/'
             className='text-2xl font-bold uppercase tracking-widest'
@@ -22,7 +26,7 @@ const Header = () => {
         </div>
 
         {/* Nav links */}
-        <ul className='flex items-center gap-10'>
+        <ul className='hidden items-center gap-10 sm:flex'>
           <li className='text-sm font-medium uppercase tracking-wider'>
             <NavLink href='/products'>Products</NavLink>
           </li>
