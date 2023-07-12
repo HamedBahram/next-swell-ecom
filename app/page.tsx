@@ -1,11 +1,13 @@
-import { listCategories } from '@/lib/swell/product'
+import Image from 'next/image'
 import Link from 'next/link'
+
+import { listCategories } from '@/lib/swell/product'
+
+import noImage from '@/public/images/no-img.png'
 
 const Page = async () => {
   const { results: categories } = await listCategories()
   const mainCategories = categories.filter(c => c.parentId === null).slice(0, 3)
-
-  console.log(mainCategories[0])
 
   return (
     <section className='py-24'>
@@ -29,9 +31,11 @@ const Page = async () => {
               <>
                 {index === 0 ? (
                   <div className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2'>
-                    <img
-                      src={category.images?.[0].file?.url}
+                    <Image
                       alt={category.name}
+                      width={category.images?.[0].file?.width || 600}
+                      height={category.images?.[0].file?.height || 400}
+                      src={category.images?.[0].file?.url || noImage}
                       className='object-cover object-center group-hover:opacity-75'
                     />
                     <div
@@ -41,10 +45,10 @@ const Page = async () => {
                     <div className='flex items-end p-6'>
                       <div>
                         <h3 className='font-semibold text-white'>
-                          <a href='#'>
+                          <Link href={`/products/category/${category.slug}`}>
                             <span className='absolute inset-0' />
                             {category.name}
-                          </a>
+                          </Link>
                         </h3>
                         <p
                           aria-hidden='true'
@@ -57,9 +61,11 @@ const Page = async () => {
                   </div>
                 ) : (
                   <div className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full'>
-                    <img
-                      src={category.images?.[0].file?.url}
+                    <Image
                       alt={category.name}
+                      width={category.images?.[0].file?.width || 600}
+                      height={category.images?.[0].file?.height || 400}
+                      src={category.images?.[0].file?.url || noImage}
                       className='object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full'
                     />
                     <div
@@ -69,10 +75,10 @@ const Page = async () => {
                     <div className='flex items-end p-6 sm:absolute sm:inset-0'>
                       <div>
                         <h3 className='font-semibold text-white'>
-                          <a href='#'>
+                          <Link href={`/products/category/${category.slug}`}>
                             <span className='absolute inset-0' />
                             {category.name}
-                          </a>
+                          </Link>
                         </h3>
                         <p
                           aria-hidden='true'
