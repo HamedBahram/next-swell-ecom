@@ -1,16 +1,51 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
-import { useCart } from '@/lib/context/CartProvider'
 import { formatCurrency } from '@/lib/utils'
+import { generateToken } from '@/app/_actions'
+import { useCart } from '@/lib/context/CartProvider'
+import { SignInButton, useUser } from '@clerk/nextjs'
 
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { login } from '@/lib/swell/account'
 
 const ShoppingCart = () => {
-  const { cart, loading, removeItem, showShoppingCart, setShowShoppingCart } =
-    useCart()
+  const router = useRouter()
+  const { isSignedIn, user } = useUser()
+  const [updating, setUpdating] = useState(false)
+
+  const {
+    cart,
+    loading,
+    removeItem,
+    updateCart,
+    showShoppingCart,
+    setShowShoppingCart
+  } = useCart()
+
+  const handleCheckout = async () => {
+    if (!isSignedIn) return
+
+    if (!cart?.accountLoggedIn) {
+      setUpdating(true)
+
+      // generate token server-side
+      const { token } = await generateToken()
+
+      const email = user.primaryEmailAddress?.emailAddress
+      if (!email) return
+
+      // login client-side
+      const { success } = await login(email, token)
+      if (success) updateCart()
+
+      setUpdating(false)
+    }
+
+    if (cart?.checkoutUrl) router.push(cart.checkoutUrl)
+  }
 
   return (
     <Transition.Root show={showShoppingCart} as={Fragment}>
@@ -65,7 +100,7 @@ const ShoppingCart = () => {
                             role='list'
                             className='-my-6 divide-y divide-gray-200'
                           >
-                            {cart?.items?.length > 0 &&
+                            {cart?.items?.length &&
                               cart.items.map((item: any) => (
                                 <li key={item.id} className='flex py-6'>
                                   <div className='relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
@@ -132,14 +167,25 @@ const ShoppingCart = () => {
 
                       {cart?.checkoutUrl && (
                         <div className='mt-6'>
-                          <Link href={cart.checkoutUrl}>
+                          {isSignedIn ? (
                             <button
-                              disabled={loading}
+                              onClick={handleCheckout}
+                              disabled={loading || updating}
                               className='flex h-12 w-full items-center justify-center rounded-md border border-transparent bg-sky-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-75'
                             >
-                              {loading ? 'Loading...' : 'Checkout'}
+                              {loading || updating ? 'Loading...' : 'Checkout'}
                             </button>
-                          </Link>
+                          ) : (
+                            <SignInButton mode='modal'>
+                              <button
+                                onClick={() => setShowShoppingCart(false)}
+                                disabled={loading || updating}
+                                className='flex h-12 w-full items-center justify-center rounded-md border border-transparent bg-sky-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-75'
+                              >
+                                Sign in to Checkout
+                              </button>
+                            </SignInButton>
+                          )}
                         </div>
                       )}
 

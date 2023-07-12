@@ -4,9 +4,6 @@ import { capitalize } from '@/lib/utils'
 
 const Breadcrumbs = () => {
   const pathname = usePathname()
-
-  console.log(pathname)
-
   const paths = pathname?.split('/').filter(Boolean)
   const breadcrumbs =
     paths.map((path, index) => ({

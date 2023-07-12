@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 import clsx from 'clsx'
-import { sortOptions } from '@/lib/swell/products'
+import { sortOptions } from '@/lib/swell/product'
 
 import MenuItem from '@/components/ui/MenuItem'
 

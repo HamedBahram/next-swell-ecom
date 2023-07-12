@@ -9,10 +9,6 @@ if (!storeId || !secretKey) {
   throw new Error('Swell store ID or Secret key is missing.')
 }
 
-const options = {
-  useCamelCase: true
-}
-
-swell.init(storeId, secretKey, options)
+swell.init(storeId, secretKey)
 
 export default swell

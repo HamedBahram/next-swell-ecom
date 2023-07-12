@@ -1,4 +1,4 @@
-import { getProducts, listCategories, sortMap } from '@/lib/swell/products'
+import { getProducts, listCategories, sortMap } from '@/lib/swell/product'
 import Products from '@/components/products/Products'
 
 const Page = async ({
