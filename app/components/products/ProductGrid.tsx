@@ -28,7 +28,7 @@ const ProductGrid = ({ products }: { products: Product[] }) => {
                 <SaleBadge />
               </div>
             )}
-            <div className='relative aspect-square w-full overflow-hidden rounded-lg bg-stone-200'>
+            <div className='aspect-h-1 aspect-w-1 relative w-full overflow-hidden rounded-lg bg-stone-200'>
               <Image
                 src={product.images?.[0]?.file?.url || NoImage}
                 alt={product.description || 'product image'}

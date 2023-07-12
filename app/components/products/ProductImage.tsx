@@ -39,13 +39,13 @@ const ProductImage = ({ images }: { images: Image[] | undefined }) => {
         </Tab.List>
       </div>
 
-      <Tab.Panels className='aspect-w-1 aspect-h-1 w-full'>
+      <Tab.Panels className='aspect-h-3 aspect-w-4 w-full'>
         {images?.map(image => (
           <Tab.Panel key={image.id}>
             <img
               src={image.file?.url}
               alt='product image'
-              className='h-full w-full object-cover object-center sm:rounded-lg'
+              className='h-full w-full rounded-lg object-cover object-center'
             />
           </Tab.Panel>
         ))}

@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^4.21.13",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",

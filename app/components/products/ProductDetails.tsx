@@ -22,7 +22,7 @@ const ProductDetails = ({
   const { resolvedTheme } = useTheme()
 
   return (
-    <div className='lg:max-w-lg'>
+    <div className='lg:max-w-xl'>
       <div className='mt-4'>
         {product.sale && (
           <div className='mb-1'>
