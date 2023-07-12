@@ -40,6 +40,7 @@ const MobileNavMenu = () => {
             <Menu.Item>
               {({ active }) => (
                 <Link
+                  key={item.name}
                   href={item.href}
                   className={clsx(
                     active && 'bg-stone-700/50 dark:bg-stone-200',
