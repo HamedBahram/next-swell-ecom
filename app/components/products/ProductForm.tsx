@@ -37,7 +37,16 @@ const ProductForm = ({
     const productData = {
       productId,
       quantity: 1,
-      ...(selectedSize && { options: { Size: selectedSize.name } }),
+      ...(selectedSize && {
+        options: [
+          {
+            name: 'Size',
+            value: selectedSize.name,
+            shipment_weight: selectedSize.shipment_weight || 0,
+            shipmentWeight: selectedSize.shipment_weight || 0
+          }
+        ]
+      }),
       ...(selectedPurchaseOption?.id === 'subscription' && {
         purchaseOption: {
           type: selectedPurchaseOption.id,
