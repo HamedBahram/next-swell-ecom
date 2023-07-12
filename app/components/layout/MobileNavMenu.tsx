@@ -37,10 +37,9 @@ const MobileNavMenu = () => {
           </Menu.Button>
 
           {navigation.map(item => (
-            <Menu.Item>
+            <Menu.Item key={item.name}>
               {({ active }) => (
                 <Link
-                  key={item.name}
                   href={item.href}
                   className={clsx(
                     active && 'bg-stone-700/50 dark:bg-stone-200',
