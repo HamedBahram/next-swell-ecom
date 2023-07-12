@@ -6,7 +6,7 @@ import ShoppingCart from '@/components/products/ShoppingCart'
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider attribute='class' defaultTheme='dark'>
       <CartProvider>
         {children}
         <ShoppingCart />
