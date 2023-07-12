@@ -38,7 +38,7 @@ const Page = async () => {
                       alt={category.name}
                       width={category.images?.[0].file?.width || 600}
                       height={category.images?.[0].file?.height || 400}
-                      src={category.images?.[0].file?.url || noImage}
+                      src={category.images?.[0].file?.url!}
                       className='object-cover object-center group-hover:opacity-75'
                     />
                     <div
@@ -71,7 +71,7 @@ const Page = async () => {
                       alt={category.name}
                       width={category.images?.[0].file?.width || 600}
                       height={category.images?.[0].file?.height || 400}
-                      src={category.images?.[0].file?.url || noImage}
+                      src={category.images?.[0].file?.url!}
                       className='object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full'
                     />
                     <div
