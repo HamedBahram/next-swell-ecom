@@ -30,7 +30,10 @@ const Page = async () => {
             {mainCategories.map((category, index) => (
               <>
                 {index === 0 ? (
-                  <div className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2'>
+                  <div
+                    key={index}
+                    className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2'
+                  >
                     <Image
                       alt={category.name}
                       width={category.images?.[0].file?.width || 600}
@@ -60,7 +63,10 @@ const Page = async () => {
                     </div>
                   </div>
                 ) : (
-                  <div className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full'>
+                  <div
+                    key={index}
+                    className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full'
+                  >
                     <Image
                       alt={category.name}
                       width={category.images?.[0].file?.width || 600}
