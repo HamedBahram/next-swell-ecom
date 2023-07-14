@@ -1,7 +1,10 @@
 This is an Ecommerce project powered by:
 
-- [NextJs](https://nextjs.org)
+- [NextJS 13](https://nextjs.org)
 - [Swell](https://www.swell.is/)
+- [Clerk](https://clerk.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- TypeScript
 
 ## Learn More
 
