@@ -100,7 +100,8 @@ const ShoppingCart = () => {
                             role='list'
                             className='-my-6 divide-y divide-gray-200'
                           >
-                            {cart?.items?.length &&
+                            {cart?.items &&
+                              cart.items.length > 0 &&
                               cart.items.map((item: any) => (
                                 <li key={item.id} className='flex py-6'>
                                   <div className='relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
